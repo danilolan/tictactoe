@@ -1,0 +1,7 @@
+.line.horizontal{
+    border-bottom: 5px solid #0005;
+}
+
+.line.vertical{
+    border-left: 5px solid #0005; 
+}
