@@ -4,28 +4,135 @@ import './main.css'
 import Button from './Button'
 import Line from './Line';
 
-const initialState = {
-    icons: ['','','','','','','','',''],
-    currentPlayer: true
-}
-
 class Main extends React.Component {
 
-    state = {...initialState}
+    state = {icons: ['','','','','','','','',''],
+            currentPlayer: true,
+            scoreboard: [0,0]}
 
     constructor(props){
         super(props)
 
         this.clearBoard = this.clearBoard.bind(this)
         this.onClick = this.onClick.bind(this)
+        this.gameLogic = this.gameLogic.bind(this)
     }
 
     clearBoard(){
-        this.setState({...initialState})
+        this.setState({icons: ['','','','','','','','',''],currentPlayer: true})
+        console.log("Limpar")
+    }
+
+    gameLogic(){
+        var icons = this.state.icons
+        var scoreboard = this.state.scoreboard
+        console.log(icons)
+        if(icons[0] === icons[1] && icons[1] === icons[2]){
+            if(icons[0] === "X"){
+                scoreboard[0] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+
+                console.log("venceu")
+            }
+            else if(icons[0] === "O"){
+                scoreboard[1] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+        }
+        if(icons[3] === icons[4] && icons[4] === icons[5]){
+            if(icons[3] === "X"){
+                scoreboard[0] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+            else if(icons[3] === "O"){
+                scoreboard[1] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+        }
+        if(icons[6] === icons[7] && icons[7] === icons[8]){
+            if(icons[6] === "X"){
+                scoreboard[0] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+            else if(icons[6] === "O"){
+                scoreboard[1] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+        }
+        if(icons[0] === icons[3] && icons[3] === icons[6]){
+            if(icons[0] === "X"){
+                scoreboard[0] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+            else if(icons[0] === "O"){
+                scoreboard[1] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+        }
+        if(icons[1] === icons[4] && icons[4] === icons[7]){
+            if(icons[1] === "X"){
+                scoreboard[0] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+            else if(icons[1] === "O"){
+                scoreboard[1] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+        }
+        if(icons[2] === icons[5] && icons[5] === icons[8]){
+            if(icons[2] === "X"){
+                scoreboard[0] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+            else if(icons[2] === "O"){
+                scoreboard[1] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+        }
+        if(icons[6] === icons[4] && icons[4] === icons[2]){
+            if(icons[6] === "X"){
+                scoreboard[0] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+            else if(icons[6] === "O"){
+                scoreboard[1] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+        }
+        if(icons[0] === icons[4] && icons[4] === icons[8]){
+            if(icons[0] === "X"){
+                scoreboard[0] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+            else if(icons[0] === "O"){
+                scoreboard[1] += 1
+                this.setState({scoreboard})
+                this.clearBoard()
+            }
+        }
+        console.log(this.state.scoreboard)
     }
 
     onClick(id){
         var icons = this.state.icons
+        if(icons[id] !== ''){
+            return
+        }
         if(this.state.currentPlayer){
             icons[id] = 'X'
             this.setState({icons})
@@ -36,6 +143,7 @@ class Main extends React.Component {
             this.setState({icons})
             this.setState({currentPlayer: true})
         }
+        this.gameLogic()
     }
 
 
