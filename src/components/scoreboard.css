@@ -1,0 +1,10 @@
+.scoreboard{
+    position: fixed;
+    right: 0;
+    background-color: #0003;
+    width: max-content;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 3px;
+    color: white;
+}

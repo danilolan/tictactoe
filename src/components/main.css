@@ -3,13 +3,23 @@
 }
 
 .Main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Main .board{
     width: 420px;
     height: 420px;
     border-radius: 5px;
     padding: 10px;
-    border-radius: 5px;
+}
+.Main .board .line{
+    display: flex;
 }
 
-.Main .line{
-    display: flex;
+.Main .scoreboard{
+    
+    
 }

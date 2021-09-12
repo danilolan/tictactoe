@@ -3,6 +3,11 @@ import './main.css'
 
 import Button from './Button'
 import Line from './Line';
+import Scoreboard from './Scoreboard';
+
+/*------------------------------------------
+    FAZER LOGICA PARA QUANDO DAR VELHA
+-------------------------------------------*/
 
 class Main extends React.Component {
 
@@ -149,34 +154,37 @@ class Main extends React.Component {
 
     render() { 
         return <div className="Main">
-            <div className='line'>
-                <Button icon={this.state.icons[0]} click={() => this.onClick(0)}></Button>
-                <Line vertical='true' size='100'/>
-                <Button icon={this.state.icons[1]} click={() => this.onClick(1)}></Button>
-                <Line vertical='true' size='100'/>
-                <Button icon={this.state.icons[2]} click={() => this.onClick(2)}></Button>
+            <div className="board">
+                <div className='line'>
+                    <Button icon={this.state.icons[0]} click={() => this.onClick(0)}></Button>
+                    <Line vertical='true' size='100'/>
+                    <Button icon={this.state.icons[1]} click={() => this.onClick(1)}></Button>
+                    <Line vertical='true' size='100'/>
+                    <Button icon={this.state.icons[2]} click={() => this.onClick(2)}></Button>
+                </div>
+
+                <Line horizontal='true' size='300'/>
+
+                <div className='line'>
+                    <Button icon={this.state.icons[3]} click={() => this.onClick(3)}></Button>
+                    <Line vertical='true' size='100'/>
+                    <Button icon={this.state.icons[4]} click={() => this.onClick(4)}></Button>
+                    <Line vertical='true' size='100'/>
+                    <Button icon={this.state.icons[5]} click={() => this.onClick(5)}></Button>
+                </div>
+
+                <Line horizontal='true' size='300'/>
+
+                <div className='line'>
+                    <Button icon={this.state.icons[6]} click={() => this.onClick(6)}></Button>
+                    <Line vertical='true' size='100'/>
+                    <Button icon={this.state.icons[7]} click={() => this.onClick(7)}></Button>
+                    <Line vertical='true' size='100'/>
+                    <Button icon={this.state.icons[8]} click={() => this.onClick(8)}></Button>
+                </div>
             </div>
 
-            <Line horizontal='true' size='300'/>
-
-            <div className='line'>
-                <Button icon={this.state.icons[3]} click={() => this.onClick(3)}></Button>
-                <Line vertical='true' size='100'/>
-                <Button icon={this.state.icons[4]} click={() => this.onClick(4)}></Button>
-                <Line vertical='true' size='100'/>
-                <Button icon={this.state.icons[5]} click={() => this.onClick(5)}></Button>
-            </div>
-
-            <Line horizontal='true' size='300'/>
-
-            <div className='line'>
-                <Button icon={this.state.icons[6]} click={() => this.onClick(6)}></Button>
-                <Line vertical='true' size='100'/>
-                <Button icon={this.state.icons[7]} click={() => this.onClick(7)}></Button>
-                <Line vertical='true' size='100'/>
-                <Button icon={this.state.icons[8]} click={() => this.onClick(8)}></Button>
-            </div>
-
+            <Scoreboard classname="scoreboard" x={this.state.scoreboard[0]} o={this.state.scoreboard[1]}></Scoreboard>
         </div>;
     }
 }
