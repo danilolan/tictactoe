@@ -31,7 +31,17 @@ class Main extends React.Component {
     gameLogic(){
         var icons = this.state.icons
         var scoreboard = this.state.scoreboard
-        console.log(icons)
+        var cont = 0
+        for(var i in icons){   
+            if(icons[i] !== ''){
+                cont++
+            }
+        }
+        if(cont === 9){
+            console.log("Velha")
+            this.clearBoard()
+        }
+        cont = 0
         if(icons[0] === icons[1] && icons[1] === icons[2]){
             if(icons[0] === "X"){
                 scoreboard[0] += 1
