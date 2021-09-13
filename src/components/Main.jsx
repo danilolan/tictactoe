@@ -25,7 +25,6 @@ class Main extends React.Component {
 
     clearBoard(){
         this.setState({icons: ['','','','','','','','',''],currentPlayer: true})
-        console.log("Limpar")
     }
 
     gameLogic(){
@@ -38,7 +37,6 @@ class Main extends React.Component {
             }
         }
         if(cont === 9){
-            console.log("Velha")
             this.clearBoard()
         }
         cont = 0
@@ -47,8 +45,6 @@ class Main extends React.Component {
                 scoreboard[0] += 1
                 this.setState({scoreboard})
                 this.clearBoard()
-
-                console.log("venceu")
             }
             else if(icons[0] === "O"){
                 scoreboard[1] += 1
@@ -140,7 +136,6 @@ class Main extends React.Component {
                 this.clearBoard()
             }
         }
-        console.log(this.state.scoreboard)
     }
 
     onClick(id){
@@ -164,12 +159,13 @@ class Main extends React.Component {
 
     render() { 
         return <div className="Main">
+            <Scoreboard type={true} icon={this.state.scoreboard[0]}></Scoreboard>
             <div className="board">
                 <div className='line'>
                     <Button icon={this.state.icons[0]} click={() => this.onClick(0)}></Button>
-                    <Line vertical='true' size='100'/>
+                    <Line vertical='true' size='90'/>
                     <Button icon={this.state.icons[1]} click={() => this.onClick(1)}></Button>
-                    <Line vertical='true' size='100'/>
+                    <Line vertical='true' size='90'/>
                     <Button icon={this.state.icons[2]} click={() => this.onClick(2)}></Button>
                 </div>
 
@@ -177,9 +173,9 @@ class Main extends React.Component {
 
                 <div className='line'>
                     <Button icon={this.state.icons[3]} click={() => this.onClick(3)}></Button>
-                    <Line vertical='true' size='100'/>
+                    <Line vertical='true' size='90'/>
                     <Button icon={this.state.icons[4]} click={() => this.onClick(4)}></Button>
-                    <Line vertical='true' size='100'/>
+                    <Line vertical='true' size='90'/>
                     <Button icon={this.state.icons[5]} click={() => this.onClick(5)}></Button>
                 </div>
 
@@ -187,14 +183,13 @@ class Main extends React.Component {
 
                 <div className='line'>
                     <Button icon={this.state.icons[6]} click={() => this.onClick(6)}></Button>
-                    <Line vertical='true' size='100'/>
+                    <Line vertical='true' size='90'/>
                     <Button icon={this.state.icons[7]} click={() => this.onClick(7)}></Button>
-                    <Line vertical='true' size='100'/>
+                    <Line vertical='true' size='90'/>
                     <Button icon={this.state.icons[8]} click={() => this.onClick(8)}></Button>
                 </div>
             </div>
-
-            <Scoreboard classname="scoreboard" x={this.state.scoreboard[0]} o={this.state.scoreboard[1]}></Scoreboard>
+            <Scoreboard type={false} icon={this.state.scoreboard[1]}></Scoreboard>
         </div>;
     }
 }

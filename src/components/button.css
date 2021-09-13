@@ -2,15 +2,21 @@
     border: none;
     outline: none;
     background: none;
-    color: white;
     font-size: 3em;
     border-radius: 5px;
-    width: 130%;
+    width: 130px;
     height: 130px;
     padding: 0;
     margin: 10px;
 }
 
+.Button.x{
+    color: rgb(37, 37, 37);
+}
+
+.Button.o{
+    color: white;
+}
 .Button:hover{
     cursor: pointer;
     background-color: #0002;

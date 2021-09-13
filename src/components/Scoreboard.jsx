@@ -2,11 +2,12 @@ import React from 'react';
 import './scoreboard.css'
 
 function Scoreboard(props) {
+    var classes = 'scoreboard '
+    props.type ? classes += 'x' : classes += 'o'
+
     return ( 
-        <div className="scoreboard">
-            <h1>Placar</h1>
-            <h2>X: {props.x}</h2>
-            <h2>O: {props.o}</h2>
+        <div className={classes}>
+            <t>{props.icon}</t>
         </div>
      );
 }
